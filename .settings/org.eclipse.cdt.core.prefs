@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Debug.1184752841/append=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Debug.1184752841/appendContributed=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Release.2079828098/TIVA_WARE/delimiter=;
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Release.2079828098/TIVA_WARE/operation=append
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Release.2079828098/TIVA_WARE/value=${TIVA_WARE}
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Release.2079828098/append=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Release.2079828098/appendContributed=true
