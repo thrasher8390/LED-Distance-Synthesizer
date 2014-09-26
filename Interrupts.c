@@ -22,7 +22,7 @@
 //
 //*****************************************************************************
 static BOOLEAN risingEdgeSeen = FALSE;
-static uint16_t beginTime, echoWidth;
+static uint16_t beginTime, echoWidth; // Must stay uint16 to do 16bit timer math
 
 //*****************************************************************************
 //		Global Functions

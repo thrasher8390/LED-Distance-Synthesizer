@@ -22,7 +22,7 @@
 //Global Functions
 //============================================================
 extern int Ultrasonic_GetDistanceCM(void);
-extern void Ultrasonic_SetDistanceCM(uint16_t);
+extern void Ultrasonic_SetDistanceCM(int);
 extern void Ultrasonic__SetTrigger(void);
 extern void Ultrasonic_SetWaitingForEcho(BOOLEAN);
 

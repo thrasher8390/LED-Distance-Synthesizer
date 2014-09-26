@@ -41,7 +41,7 @@ int Ultrasonic_GetDistanceCM(void)
 {
 	return DistanceCM;
 }
-void Ultrasonic_SetDistanceCM(uint16_t distanceCM)
+void Ultrasonic_SetDistanceCM(int distanceCM)
 {
 	DistanceCM = distanceCM;
 }
