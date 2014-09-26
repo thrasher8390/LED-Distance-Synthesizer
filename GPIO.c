@@ -18,7 +18,7 @@
 /*!
  * \brief Init GPIO
  */
-void GPIO_Initialization(void)
+void GPIO_Initialize(void)
 {
 	//
 	// Enable the peripherals used by this example.

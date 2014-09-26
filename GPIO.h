@@ -15,7 +15,7 @@
 //*****************************************************************************
 //		Global Functions
 //*****************************************************************************
-extern void GPIO_Initialization(void);		//GPIO.c
+extern void GPIO_Initialize(void);		//GPIO.c
 
 
 #endif /* GPIO_H_ */
