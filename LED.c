@@ -13,7 +13,7 @@
 //============================================================
 //Global Functions
 //============================================================
-void LED__ChangeColor(LED_COLOR color)
+void LED_ChangeColor(LED_COLOR color)
 {
 	switch(color)
 	{

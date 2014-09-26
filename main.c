@@ -80,11 +80,11 @@ int main(void)
 	UARTprintf("\nUltraSonic LED Synthesizer\n");
 
 	int ledDelayMS = 1;
-	LED__ChangeColor(LED_RED);
+	LED_ChangeColor(LED_RED);
 	Delay(ledDelayMS);
-	LED__ChangeColor(LED_RED_GREEN);
+	LED_ChangeColor(LED_RED_GREEN);
 	Delay(ledDelayMS);
-	LED__ChangeColor(LED_OFF);
+	LED_ChangeColor(LED_OFF);
 
 	//
 	// Loop forever.
@@ -98,28 +98,28 @@ int main(void)
 		switch((Ultrasonic_GetDistanceCM() % 14)/2)
 		{
 		case 0:
-			LED__ChangeColor(LED_RED);
+			LED_ChangeColor(LED_RED);
 					break;
 		case 1:
-			LED__ChangeColor(LED_RED_GREEN);
+			LED_ChangeColor(LED_RED_GREEN);
 					break;
 		case 2:
-			LED__ChangeColor(LED_GREEN);
+			LED_ChangeColor(LED_GREEN);
 					break;
 		case 3:
-			LED__ChangeColor(LED_GREEN_BLUE);
+			LED_ChangeColor(LED_GREEN_BLUE);
 					break;
 		case 4:
-			LED__ChangeColor(LED_BLUE);
+			LED_ChangeColor(LED_BLUE);
 					break;
 		case 5:
-			LED__ChangeColor(LED_RED_BLUE);
+			LED_ChangeColor(LED_RED_BLUE);
 					break;
 		case 6:
-			LED__ChangeColor(LED_RED_GREEN_BLUE);
+			LED_ChangeColor(LED_RED_GREEN_BLUE);
 					break;
 		default:
-			LED__ChangeColor(LED_OFF);
+			LED_ChangeColor(LED_OFF);
 					break;
 
 		}

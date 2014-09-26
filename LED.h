@@ -36,7 +36,7 @@ typedef enum
 #define LED_RED_PIN 		(GPIO_PIN_1)
 #define LED_GREEN_PIN		(GPIO_PIN_3)
 #define LED_BLUE_PIN		(GPIO_PIN_2)
-extern void LED__ChangeColor(LED_COLOR color);
+extern void LED_ChangeColor(LED_COLOR color);
 
 
 #endif /* LED_H_ */
