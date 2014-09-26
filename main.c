@@ -194,7 +194,35 @@ int main(void)
 		//Set Trigger
 		Ultrasonic__SetTrigger();
 		//while(WaitingForEcho);
-		Delay(1);
+		//Delay(1);
+		switch((DistanceCM % 14)/2)
+		{
+		case 0:
+			LED__ChangeColor(LED_RED);
+					break;
+		case 1:
+			LED__ChangeColor(LED_RED_GREEN);
+					break;
+		case 2:
+			LED__ChangeColor(LED_GREEN);
+					break;
+		case 3:
+			LED__ChangeColor(LED_GREEN_BLUE);
+					break;
+		case 4:
+			LED__ChangeColor(LED_BLUE);
+					break;
+		case 5:
+			LED__ChangeColor(LED_RED_BLUE);
+					break;
+		case 6:
+			LED__ChangeColor(LED_RED_GREEN_BLUE);
+					break;
+		default:
+			LED__ChangeColor(LED_OFF);
+					break;
+
+		}
 	}
 }
 
@@ -256,11 +284,21 @@ void LED__ChangeColor(LED_COLOR color)
 }
 
 /*!
+ * \brief lets make an led blink every 2 seconds
+ */
+void Blink_LED_2_Seconds_Test()
+{
+
+}
+
+
+
+/*!
  *  \brief Init timer module
  */
 #define SYSTEM_TIMER_MHZ 	(16)
 #define TIMER0 				(TIMER0_BASE)
-#define TIMER0_PRESCALER 	(256)
+#define TIMER0_PRESCALER 	(16)
 #define TIMER0_COUNT_US()	(TimerValueGet(TIMER0, TIMER_A)/SYSTEM_TIMER_MHZ)
 void Timers__Initialize(void)
 {
@@ -277,7 +315,14 @@ void Timers__Initialize(void)
 	//Enable Timer
 	TimerEnable(TIMER0, TIMER_A);
 }
+/*!
+ * \brief setup the timer for capture compare or to fire every 2 seconds
+ * \note make sure that the prescale times the 16 MHz clock results in a tick that can be equated to 2 seconds.
+ */
+void initializeCCRTimer()
+{
 
+}
 
 /*!
  * \brief Init GPIO
@@ -373,7 +418,7 @@ void DelayMS(uint32_t ui32MilliSeconds)
 //
 //*****************************************************************************
 static BOOLEAN risingEdgeSeen = FALSE;
-static uint32_t beginTime, echoWidth;
+static uint16_t beginTime, echoWidth;
 void IntGPIOd(void)
 {
 	GPIOIntClear(ULTRASONIC_SENSOR_PORT, ECHO_PIN);
@@ -394,24 +439,26 @@ void IntGPIOd(void)
 		DistanceCM = (echoWidth/29/2);
 		UARTprintf("Centimeters = %d\n", DistanceCM);
 		risingEdgeSeen = FALSE;
-		//
-		// Wait two seconds.
-		//
+
+		//We have heard the echo
 		WaitingForEcho = FALSE;
 	}
 }
 
 /*!
- * \brief Will set triger pin high for 10 ms.
+ * \brief Will set triger pin high for x ms.
  */
 void Ultrasonic__SetTrigger(void)
 {
 	uint32_t i;
+	//Set the trigger pin high
 	GPIOPinWrite(ULTRASONIC_SENSOR_PORT, TRIGGER_PIN, TRIGGER_PIN);
+	//wait some time
 	for(i = 0; i<400; i++)
 	{
 
 	}
+	//Set the trigger pin back to low
 	GPIOPinWrite(ULTRASONIC_SENSOR_PORT, TRIGGER_PIN, CLEAR);
 	WaitingForEcho = TRUE;
 }
